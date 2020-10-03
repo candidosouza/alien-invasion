@@ -1,9 +1,8 @@
-import sys
 import pygame
-import typing
 
 from settings import Settings
 from ship import Ship
+import game_functions as gf
 
 
 def run_game() -> None:
@@ -21,18 +20,8 @@ def run_game() -> None:
 
     # Inicia o laço principal do jogo
     while True:
-
-        # Observa os eventos do teclado
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-
-        # Redesenha a tela a cada passagem do laço for
-        screen.fill(settings.bg_color)
-        ship.blitme()
-
-        # Deixa a tela mais recente visível
-        pygame.display.flip()
+        gf.check_events()
+        gf.update_screen(settings, screen, ship)
 
 
 run_game()
