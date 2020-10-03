@@ -29,4 +29,5 @@ def run_game() -> None:
         # Deixa a tela mais recente visível
         pygame.display.flip()
 
+
 run_game()
