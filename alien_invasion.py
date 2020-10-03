@@ -2,18 +2,18 @@ import sys
 import pygame
 import typing
 
+from settings import Settings
 
-def run_game():
+
+def run_game() -> None:
     # Inicializa o jogo e cria um objeto para a tela
     pygame.init()
 
-    screen: pygame.SurfaceType = pygame.display.set_mode((1200, 768))
+    settings = Settings()
+
+    screen: pygame.SurfaceType = pygame.display.set_mode(
+        (settings.screen_width, settings.screen_heigth))
     pygame.display.set_caption("Alien Invasion")
-
-    print(type(screen))
-
-    # define a cor de fundo
-    bg_color: tuple = (230, 230, 230)
 
     # Inicia o laço principal do jogo
     while True:
@@ -24,7 +24,7 @@ def run_game():
                 sys.exit()
 
         # Redesenha a tela a cada passagem do laço for
-        screen.fill(bg_color)
+        screen.fill(settings.bg_color)
 
         # Deixa a tela mais recente visível
         pygame.display.flip()
